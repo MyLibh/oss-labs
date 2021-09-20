@@ -1,0 +1,14 @@
+  437  dd if=/dev/zero of=./fs.img bs=1M count=10
+  438  losetup --find --show ./fs.img
+  439  losetup --list
+  440  mkfs -t ext4 /dev/loop0
+  441  blkid /dev/loop0
+  442  mount /dev/loop0 /mnt
+  443  mount | grep /mnt
+  444  df -h /mnt
+  445  df -hi /mnt 
+  446  umount /dev/loop0
+  447  tune2fs -l /dev/loop0 
+  448  losetup --detach /dev/loop0
+  449  losetup --list
+  450  history > history.txt
